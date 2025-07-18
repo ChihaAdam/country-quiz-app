@@ -17,8 +17,8 @@ function Question({ question, correct_answer, possible_answers }: question) {
   const { incrementQuestionNumber } = useQuestionNumberStore();
   return (
     <div className="mx-auto">
-      <h1 className="text-2xl max-sm:text-lg font-bold text-white">{question}</h1>
-      <div className="grid grid-cols-2 max-md:grid-cols-1 max-md:grid-rows-4 w-full grid-rows-2 gap-4 mt-4">
+      <h1 className="text-2xl font-bold text-white max-sm:text-lg">{question}</h1>
+      <div className="grid w-full grid-cols-2 grid-rows-2 gap-4 mt-4 max-md:grid-cols-1 max-md:grid-rows-4">
         {possible_answers.map((answer, index) => (
           <button
             key={index}
@@ -29,7 +29,7 @@ function Question({ question, correct_answer, possible_answers }: question) {
             {answer}
             {answered && (
               <img
-                src={answer === correct_answer ? "./assets/Check_round_fill.svg" : "./assets/Close_round_fill.svg"}
+                src={answer === correct_answer ? "./Check_round_fill.svg" : "./Close_round_fill.svg"}
               ></img>
             )}{" "}
           </button>
@@ -37,7 +37,7 @@ function Question({ question, correct_answer, possible_answers }: question) {
       </div>
       {answered && (
         <div
-          className="gradiant font-semibold text-center mt-4 py-2 rounded-lg cursor-pointer text-white"
+          className="py-2 mt-4 font-semibold text-center text-white rounded-lg cursor-pointer gradiant"
           onClick={() => {
             incrementQuestionNumber();
             setAnsweredToFalse();

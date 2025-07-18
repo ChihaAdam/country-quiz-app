@@ -4,3 +4,8 @@
     @apply  bg-gradient-to-r from-purple-500 to-pink-500;
   }
 }
+@layer base{
+  body{
+    @apply bg-[url('/bg.jpg')] grid place-items-center content-center h-screen bg-cover bg-no-repeat bg-center bg-fixed max-md:bg-[url('/bg-sm.jpg')] w-screen
+  }
+}

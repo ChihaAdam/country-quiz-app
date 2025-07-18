@@ -15,7 +15,7 @@ function Finished() {
   const {points}=usePoints();
   return (
     <div className="w-fit text-white bg-[hsl(0,0%,100%,0.05)] flex flex-col items-center gap-2 p-2 rounded-xl">
-      <img src='./assets/congrats.png'></img>
+      <img src='./congrats.png'></img>
       <div className="flex flex-col w-4/5 gap-4 text-center"> 
       <h1 className='text-2xl '>Congrats! you completed the quiz </h1>
       <p>You answer {points}/10 correctly</p>

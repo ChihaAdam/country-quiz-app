@@ -25,11 +25,11 @@ function App() {
   }
   if (isError) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-scree">
+      <div className="flex flex-col items-center justify-center min-h-screen">
         <h1 className="text-3xl font-bold text-white">
           Error loading questions
         </h1>
-        <p className="mt-4 text-white font-semibold text-lg">
+        <p className="mt-4 text-lg font-semibold text-white">
           Please try again later
         </p>
       </div>
@@ -45,7 +45,7 @@ function App() {
 
   const question = questions[questionNumber];
   return (
-    <div className="flex flex-col gap-10 mx-auto px-4 py-8 max-w-3xl">
+    <div className="flex flex-col max-w-3xl gap-10 px-4 py-8 mx-auto">
       <Header />
       <div className="w-full mx-auto bg-[hsla(0,0%,100%,0.1)] rounded-lg flex flex-col gap-10 p-15 ">
         <QuestionNumbers questionNumber={questionNumber} />

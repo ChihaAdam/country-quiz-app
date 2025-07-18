@@ -15,6 +15,10 @@ function Question({ question, correct_answer, possible_answers }: question) {
   };
   const { answered, setAnsweredToTrue, setAnsweredToFalse } = useAnswered();
   const { incrementQuestionNumber } = useQuestionNumberStore();
+  function nextQuestion() {
+    setAnsweredToFalse();
+    incrementQuestionNumber();
+  }
   return (
     <div className="mx-auto">
       <h1 className="text-2xl font-bold text-white max-sm:text-lg">{question}</h1>
@@ -22,7 +26,7 @@ function Question({ question, correct_answer, possible_answers }: question) {
         {possible_answers.map((answer, index) => (
           <button
             key={index}
-            className="flex justify-center gap-2 items-center bg-gradient-to-r bg-[#7761a738] hover:from-purple-500 hover:to-pink-500  cursor-pointer text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out"
+            className="flex justify-center gap-2 items-center bg-gradient-to-r bg-[#7761a738] not-disabled:hover:from-purple-500 not-disabled:hover:to-pink-500 disabled:cursor-not-allowed cursor-pointer text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out"
             onClick={() => handleResponse(answer)}
             disabled={answered}
           >
@@ -38,10 +42,7 @@ function Question({ question, correct_answer, possible_answers }: question) {
       {answered && (
         <div
           className="py-2 mt-4 font-semibold text-center text-white rounded-lg cursor-pointer gradiant"
-          onClick={() => {
-            incrementQuestionNumber();
-            setAnsweredToFalse();
-          }}
+          onClick={nextQuestion}
         >
           continue to next question
         </div>

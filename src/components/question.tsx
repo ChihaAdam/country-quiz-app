@@ -29,7 +29,7 @@ function Question({ question, correct_answer, possible_answers }: question) {
             {answer}
             {answered && (
               <img
-                src={answer === correct_answer ? "./src/assets/Check_round_fill.svg" : "./src/assets/Close_round_fill.svg"}
+                src={answer === correct_answer ? "./assets/Check_round_fill.svg" : "./assets/Close_round_fill.svg"}
               ></img>
             )}{" "}
           </button>
